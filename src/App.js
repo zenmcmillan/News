@@ -50,7 +50,7 @@ function App() {
         </div>
       )}
       <Routes>
-        <Route path="/" element={<ArticlesContainer articles={articles} />} />
+        <Route path="/" element={<ArticlesContainer articles={articles} convertDate={convertDate} />} />
         <Route path="/:id" element={<ArticleDetails articles={articles} convertDate={convertDate}/>} />
       </Routes>
     </main>

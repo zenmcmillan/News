@@ -3,14 +3,20 @@ import Card from './Card.js';
 import './ArticlesContainer.css';
 import { Link } from "react-router-dom";
 
-export default function ArticlesContainer({articles}) {
+export default function ArticlesContainer({articles, convertDate}) {
+
 console.log(articles)
   const articleInfo = articles.map(article => {
+
+    let date = convertDate(article)
     
     return (
-      <Link to={`/${article.id}`} key={article.id}>
-        <Card title={article.title} id={article.id} image={article.urlToImage} />
-      </Link>
+        <Card 
+        title={article.title} 
+        id={article.id} 
+        image={article.urlToImage} 
+        description={article.description} 
+        date={date} />
     );
   })
 
