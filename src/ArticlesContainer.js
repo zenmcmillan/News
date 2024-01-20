@@ -1,7 +1,6 @@
 import React from "react";
 import Card from './Card.js';
 import './ArticlesContainer.css';
-import { Link } from "react-router-dom";
 
 export default function ArticlesContainer({articles, convertDate}) {
 
@@ -21,8 +20,8 @@ console.log(articles)
   })
 
   return (
-    <div className='articles-container'>
-      {articleInfo}
-    </div>
-  )
+  
+      <div className="articles">{articleInfo}</div>
+
+  );
 }

@@ -10,6 +10,11 @@ function App() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  function showArticles(article) {
+      let content = article.content.split(" ").reverse().splice(2);
+      return content.reverse().join(" ");
+    }
+
   function convertDate(theArticle) {
     const isoString = theArticle.publishedAt;
     const dateObject = new Date(isoString);
@@ -51,7 +56,7 @@ function App() {
       )}
       <Routes>
         <Route path="/" element={<ArticlesContainer articles={articles} convertDate={convertDate} />} />
-        <Route path="/:id" element={<ArticleDetails articles={articles} convertDate={convertDate}/>} />
+        <Route path="/:id" element={<ArticleDetails articles={articles} convertDate={convertDate} showArticles={showArticles}/>} />
       </Routes>
     </main>
   );
