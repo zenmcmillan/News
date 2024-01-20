@@ -1,0 +1,24 @@
+.news-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #06A29B;
+  color: white;
+  height: 2em;
+}
+
+.articles-title {
+  text-align: center;
+}
+
+.search-box-container {
+  display: flex;
+  justify-content: center;
+}
+
+.home {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+
