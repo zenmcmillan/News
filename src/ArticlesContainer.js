@@ -1,14 +1,21 @@
 import React from "react";
-import Card from './Card.js'
+import Card from './Card.js';
+import './ArticlesContainer.css';
+import { Link } from "react-router-dom";
 
 export default function ArticlesContainer({articles}) {
 
-  let articleInfo = articles.map(article => {
-    return <Card title={article.title} />;
+  const articleInfo = articles.map(article => {
+    
+    return (
+      <Link to={`/${article.id}`} key={article.id}>
+        <Card title={article.title} id={article.id} />
+      </Link>
+    );
   })
 
   return (
-    <div>
+    <div className='articles-container'>
       {articleInfo}
     </div>
   )
