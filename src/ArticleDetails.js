@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import './ArticleDetails.css'
+import './ArticleDetails.css';
+import { Link } from "react-router-dom";
 
 export default function ArticleDetails({articles}) {
   const id = useParams().id
@@ -17,11 +18,14 @@ export default function ArticleDetails({articles}) {
     console.log(formattedDate)
    
     return (
-      <div className='article-info-container'>
+      <div className="article-info-container">
         <h3>{theArticle.title}</h3>
         <img src={theArticle.urlToImage} />
         <p>{theArticle.description}</p>
         <p>{formattedDate}</p>
+        <Link to={theArticle.url}>
+          <p>{theArticle.url}</p>
+        </Link>
       </div>
     );
   }
