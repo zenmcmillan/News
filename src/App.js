@@ -8,7 +8,15 @@ import { Routes, Route, useNavigate, NavLink } from 'react-router-dom';
 function App() {
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  function convertDate(theArticle) {
+    const isoString = theArticle.publishedAt;
+    const dateObject = new Date(isoString);
+    const format = { month: "short", day: "numeric", year: "numeric" };
+    const formattedDate = dateObject.toLocaleString("en-US", format);
+    return formattedDate
+  }
 
   useEffect(() => {
     fetchArticles()
@@ -33,7 +41,6 @@ function App() {
           <NavLink className='home-link' to="/"> Home</NavLink>
         </div>
         
-
       {onHomePage && (
         <div>
           <h2 className="articles-title">Articles</h2>
@@ -44,7 +51,7 @@ function App() {
       )}
       <Routes>
         <Route path="/" element={<ArticlesContainer articles={articles} />} />
-        <Route path="/:id" element={<ArticleDetails articles={articles} />} />
+        <Route path="/:id" element={<ArticleDetails articles={articles} convertDate={convertDate}/>} />
       </Routes>
     </main>
   );

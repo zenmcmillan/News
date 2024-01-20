@@ -3,19 +3,14 @@ import { useParams } from "react-router-dom";
 import './ArticleDetails.css';
 import { Link } from "react-router-dom";
 
-export default function ArticleDetails({articles}) {
+export default function ArticleDetails({articles, convertDate}) {
   const id = useParams().id
 
   let theArticle = articles.find((element) => element.id === parseInt(id))
 
   if (theArticle) {
     
-    const isoString = theArticle.publishedAt;
-    const dateObject = new Date(isoString)
-
-    const format = {month: 'short', day: 'numeric', year: 'numeric'}
-    const formattedDate = dateObject.toLocaleString('en-US', format)
-    console.log(formattedDate)
+    let formattedDate = convertDate(theArticle)
    
     return (
       <div className="article-info-container">
