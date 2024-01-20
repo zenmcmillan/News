@@ -23,7 +23,6 @@ function App() {
       setError("There is an error with the server please try again later")
     })
   }
-  console.log("ARTICLES", articles)
 
   const onHomePage = window.location.pathname === '/';
 
