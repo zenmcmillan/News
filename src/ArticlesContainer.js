@@ -2,7 +2,7 @@ import React from "react";
 import Card from './Card.js';
 import './ArticlesContainer.css';
 
-export default function ArticlesContainer({articles, convertDate}) {
+export default function ArticlesContainer({articles, convertDate, error}) {
 
 console.log(articles)
   const articleInfo = articles.map(article => {
@@ -23,7 +23,7 @@ console.log(articles)
 
   return (
   
-      <div className="articles">{articleInfo}</div>
+      <div className="articles">{articleInfo}{!articleInfo.length && <h2 className="server-error">{error}</h2>}</div>
 
   );
 }

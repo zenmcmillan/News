@@ -37,7 +37,9 @@ function App() {
       let newsData = data.articles.map((obj, index) => ({...obj, id: index + 1}))
     setArticles(newsData)
     }).catch((error) => {
-      setError("There is an error with the server please try again later")
+      if (!Response.ok) {
+        setError("There is an error with the server please try again later");
+      }
     })
   }
 
@@ -51,7 +53,7 @@ function App() {
         <Route
           path="/"
           element={
-            <ArticlesContainer articles={articles} convertDate={convertDate} />
+            <ArticlesContainer articles={articles} convertDate={convertDate} error={error} />
           }
         />
         <Route
