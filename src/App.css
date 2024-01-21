@@ -14,5 +14,8 @@
   font-size: 1.2em;
 }
 
+main {
+   overflow-x: hidden;
+}
 
 
