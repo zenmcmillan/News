@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { getArticles } from './apiCalls';
 import ArticlesContainer from './ArticlesContainer';
 import ArticleDetails from "./ArticleDetails";
+import NotFound from "./NotFound";
 import Search from "./Search";
 import Header from "./Header"
 import { Routes, Route, useNavigate, NavLink } from 'react-router-dom';
@@ -53,7 +54,11 @@ function App() {
         <Route
           path="/"
           element={
-            <ArticlesContainer articles={articles} convertDate={convertDate} error={error} />
+            <ArticlesContainer
+              articles={articles}
+              convertDate={convertDate}
+              error={error}
+            />
           }
         />
         <Route
@@ -66,6 +71,7 @@ function App() {
             />
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </main>
   );
