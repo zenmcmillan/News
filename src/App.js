@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { getArticles } from './apiCalls';
 import ArticlesContainer from './ArticlesContainer';
 import ArticleDetails from "./ArticleDetails";
+import Search from "./Search";
+import Header from "./Header"
 import { Routes, Route, useNavigate, NavLink } from 'react-router-dom';
 
 function App() {
@@ -37,26 +39,29 @@ function App() {
     })
   }
 
-  const onHomePage = window.location.pathname === '/';
+   const onHomePage = window.location.pathname === '/';
 
   return (
     <main>
-        <h1 className="news-header">News</h1>
-        <div className='home'>
-          <NavLink className='home-link' to="/"> Home</NavLink>
-        </div>
-        
-      {onHomePage && (
-        <div>
-          <h2 className="articles-title">Articles</h2>
-          <div className="search-box-container">
-            <input className="search-box" />
-          </div>
-        </div>
-      )}
+      <Header />
+      {onHomePage && <Search />}
       <Routes>
-        <Route path="/" element={<ArticlesContainer articles={articles} convertDate={convertDate} />} />
-        <Route path="/:id" element={<ArticleDetails articles={articles} convertDate={convertDate} showArticles={showArticles}/>} />
+        <Route
+          path="/"
+          element={
+            <ArticlesContainer articles={articles} convertDate={convertDate} />
+          }
+        />
+        <Route
+          path="/:id"
+          element={
+            <ArticleDetails
+              articles={articles}
+              convertDate={convertDate}
+              showArticles={showArticles}
+            />
+          }
+        />
       </Routes>
     </main>
   );

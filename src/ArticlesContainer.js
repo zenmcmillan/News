@@ -15,7 +15,9 @@ console.log(articles)
         id={article.id} 
         image={article.urlToImage} 
         description={article.description} 
-        date={date} />
+        date={date} 
+        key={article.id}
+        />
     );
   })
 
