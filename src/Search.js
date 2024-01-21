@@ -10,22 +10,28 @@ export default function Search({articles, setArticles}) {
   }
 
   const searchArticle = (value) => {
-    console.log("VALUE", value)
-  let filtered = articles.filter(element => element.title.includes(value))
+    let filtered = articles.filter((element) => {
+    let title = element.title.toLowerCase();
+    let search = value.toLowerCase();
+    return title.includes(search);
+       
+    });
    setArticles(filtered)
 }
 
-const onSearch = (value) => {
-  console.log("SEARCH", value);
-  searchArticle(value);
-};
+
+
+// const onSearch = (value) => {
+//   console.log("SEARCH", value);
+//   searchArticle(value);
+// };
   
   return (
         <div>
           <h2 className="articles-title">Articles</h2>
           <div className="search-box-container">
             <input className="search-box" type="text" value={value} onChange={onChange}/>
-            <button onClick={() => onSearch(value)}>Search</button>
+            <button onClick={() => searchArticle(value)}>Search</button>
           </div>
         </div>
         )
