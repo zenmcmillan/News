@@ -4,6 +4,7 @@ import { useState } from  "react";
 
 export default function Search({articles, setArticles}) {
   const [value, setValue] = useState("");
+  
 
   const onChange = (event) => {
     setValue(event.target.value);
@@ -20,12 +21,6 @@ export default function Search({articles, setArticles}) {
 }
 
 
-
-// const onSearch = (value) => {
-//   console.log("SEARCH", value);
-//   searchArticle(value);
-// };
-  
   return (
         <div>
           <h2 className="articles-title">Articles</h2>
