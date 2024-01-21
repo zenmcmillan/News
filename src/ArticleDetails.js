@@ -21,7 +21,7 @@ export default function ArticleDetails({articles, convertDate, showArticles}) {
         <p>{content}</p>
         <p>{formattedDate}</p>
         <Link to={theArticle.url}>
-          <p>{theArticle.url}</p>
+          <p className="url" >{theArticle.url}</p>
         </Link>
         <p>{theArticle.source.name}</p>
       </div>
