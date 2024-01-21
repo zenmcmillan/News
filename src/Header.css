@@ -1,0 +1,9 @@
+.news-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #06A29B;
+  color: white;
+  height: 2em;
+  margin-top: 0
+}
