@@ -19,7 +19,7 @@ Application uses an API to fetch news article data. The user can view a snippet 
 3. Run `npm install`. It will take a few seconds to finish
 4. Run `npm start` and you should see the application in the browser
 
-### Wins & Challenges
+### Wins & Challenges:
 
 - This was my first time creating a search component so that was challenging. I struggled with resetting the state to what it originally was at the beginining of each search. I was able to fix this problem by creating another state for the original articles.
 
