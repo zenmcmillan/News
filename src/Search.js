@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Search.css";
 import { getArticles } from "./apiCalls";
 
-export default function Search({setArticles, setError }) {
+export default function Search({ setArticles, setError }) {
   const [value, setValue] = useState("");
   const [originalArticles, setOriginalArticles] = useState([]);
 
