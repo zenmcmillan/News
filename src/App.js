@@ -13,8 +13,6 @@ function App() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  
-
   function showArticles(article) {
       let content = article.content.split(" ").reverse().splice(2);
       return content.reverse().join(" ");
@@ -49,7 +47,7 @@ function App() {
   return (
     <main>
       <Header />
-      {onHomePage && <Search setArticles={setArticles} articles={articles} />}
+      {onHomePage && <Search setArticles={setArticles} setError={setError} />}
       <Routes>
         <Route
           path="/"
