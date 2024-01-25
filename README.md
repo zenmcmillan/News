@@ -10,7 +10,7 @@ Application uses an API to fetch news article data. The user can view a snippet 
 
 ### Preview of App:
 
-![News App Preview](Preview.gif)
+![News App Preview](preview.gif)
 
 ### Installations Instructions:
 
