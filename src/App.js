@@ -6,7 +6,7 @@ import ArticleDetails from "./ArticleDetails";
 import NotFound from "./NotFound";
 import Search from "./Search";
 import Header from "./Header"
-import { Routes, Route, useNavigate, NavLink } from 'react-router-dom';
+import { Routes, Route, useNavigate, NavLink, useParams } from 'react-router-dom';
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -24,6 +24,22 @@ function App() {
     const format = { month: "short", day: "numeric", year: "numeric" };
     const formattedDate = dateObject.toLocaleString("en-US", format);
     return formattedDate
+  }
+
+  function HandleNotFound() {
+    const { id } = useParams();
+
+    if (id >= 1 && id <= 100) {
+      return (
+        <ArticleDetails
+          articles={articles}
+          convertDate={convertDate}
+          showArticles={showArticles}
+        />
+      );
+    } else {
+      return <NotFound />
+    }
   }
 
   useEffect(() => {
@@ -60,13 +76,9 @@ function App() {
           }
         />
         <Route
-          path="/:id"
+          path=":id"
           element={
-            <ArticleDetails
-              articles={articles}
-              convertDate={convertDate}
-              showArticles={showArticles}
-            />
+             < HandleNotFound/>
           }
         />
         <Route path="*" element={<NotFound />} />
