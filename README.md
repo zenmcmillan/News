@@ -2,7 +2,7 @@
 
 ## Abstract
 
-Application uses an API to fetch news article data. The user can view a snippet of the article on the home page and click the title for more details. They will navigated to a page that includes more information including the link to the full article
+Application uses an API to fetch news article data. The user can view a snippet of the article on the home page and click the title for more details. They will be navigated to a page that includes more information including the link to the full article
 
 ### Application link:
 
